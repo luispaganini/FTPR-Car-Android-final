@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MyApiTest - COLOQUE O SEU NOME AQUI</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_login_screen">LoginScreen</string>
+    <string name="welcome">Bem-vindo!</string>
+    <string name="phone_number">Número de telefone</string>
+    <string name="send_verification_code">Enviar código de verificação</string>
+    <string name="verification_code">Código de verificação</string>
+    <string name="verify_code">Verificar código</string>
+    <string name="continue_with_google">Continuar com Google</string>
+    <string name="insert_number">Insira seu número de telefone para continuar.</string>
+    <string name="default_web_client_id" translatable="false">452999952893-l21ufruvnjp1qeaemequu0qqjumr0b3r.apps.googleusercontent.com</string>
 </resources>
