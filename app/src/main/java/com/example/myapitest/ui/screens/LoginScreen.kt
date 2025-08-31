@@ -1,13 +1,11 @@
 package com.example.myapitest.ui.screens
 
 import android.app.Activity
-import android.credentials.CredentialManager
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,18 +30,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -57,7 +51,6 @@ import com.example.myapitest.ui.theme.MyApiTestTheme
 import com.example.myapitest.R
 import com.example.myapitest.ui.navigation.Screen
 import com.example.myapitest.ui.viewmodel.LoginViewModel
-import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -102,7 +95,7 @@ fun LoginScreen(navController: NavController, loginViewModel: LoginViewModel = v
     }
     LaunchedEffect(uiState.loginSuccess) {
         if (uiState.loginSuccess) {
-            navController.navigate(Screen.Home.route) {
+            navController.navigate("main_screen") {
                 popUpTo(Screen.Login.route) { inclusive = true }
             }
         }

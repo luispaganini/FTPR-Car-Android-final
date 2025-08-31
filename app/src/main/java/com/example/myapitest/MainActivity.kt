@@ -11,13 +11,22 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myapitest.ui.navigation.Screen
-import com.example.myapitest.ui.screens.HomeScreen
 import com.example.myapitest.ui.screens.LoginScreen
+import com.example.myapitest.ui.screens.MainScreen
 import com.example.myapitest.ui.theme.MyApiTestTheme
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : ComponentActivity() {
+    private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val startDestination = if (auth.currentUser != null)
+            "main_screen"
+        else
+            Screen.Login.route
+
+
         setContent {
             MyApiTestTheme {
                 Surface(
@@ -28,14 +37,14 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.Login.route
+                        startDestination = startDestination
                     ) {
                         composable(route = Screen.Login.route) {
                             LoginScreen(navController = navController)
                         }
 
-                        composable(route = Screen.Home.route) {
-                            HomeScreen(navController = navController)
+                        composable(route = "main_screen") {
+                            MainScreen(rootNavController = navController)
                         }
                     }
                 }
